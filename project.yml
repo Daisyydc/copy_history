@@ -1,0 +1,43 @@
+name: BalletClipboard
+options:
+  bundleIdPrefix: com.ballet
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+
+targets:
+  BalletClipboard:
+    type: application
+    platform: macOS
+    sources:
+      - path: BalletClipboard
+        name: BalletClipboard
+        type: group
+        createIntermediateGroups: true
+    settings:
+      base:
+        INFOPLIST_FILE: BalletClipboard/Info.plist
+        GENERATE_INFOPLIST_FILE: "NO"
+        PRODUCT_BUNDLE_IDENTIFIER: com.ballet.clipboard
+        CODE_SIGN_ENTITLEMENTS: BalletClipboard/BalletClipboard.entitlements
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_APP_SANDBOX: "YES"
+        ENABLE_HARDENED_RUNTIME: "YES"
+        CURRENT_PROJECT_VERSION: "1"
+        MARKETING_VERSION: "1.0"
+        SWIFT_EMIT_LOC_STRINGS: "YES"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        COMBINE_HIDPI_IMAGES: "YES"
+    preBuildScripts:
+      - name: "SwiftLint"
+        script: |
+          # SwiftLint placeholder - install via brew to enable
+          echo "SwiftLint not configured"
+        basedOnDependencyAnalysis: false
